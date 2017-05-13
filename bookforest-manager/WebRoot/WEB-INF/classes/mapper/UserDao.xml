@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.bookforest.manager.dao.UserDao">
+ 	
+ 	<!-- 根据用户名和密码查找用户 -->
+ 	<select id="getUserByNameAndPwd" resultType="com.bookforest.manager.bean.User">
+ 			SELECT * FROM bf_user WHERE user_name=#{userName} AND user_pwd=#{userPwd}
+ 	</select>
+ 
+ </mapper>
