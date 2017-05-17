@@ -46,6 +46,11 @@
 						</a>
 						<ul>
 							<li>
+								<a href="slideimg-manager">
+									<span class="title">轮播图管理</span>
+								</a>
+							</li>
+							<li>
 								<a href="menumanager">
 									<span class="title">菜单管理</span>
 								</a>

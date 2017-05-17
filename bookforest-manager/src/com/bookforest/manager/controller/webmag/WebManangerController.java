@@ -35,4 +35,10 @@ public class WebManangerController {
 	{
 		return new ModelAndView("web-mag/skin-mag");
 	}
+	
+	@RequestMapping("slideimg-manager")
+	public ModelAndView slideimgmanager(HttpServletRequest request)
+	{
+		return new ModelAndView("web-mag/slideimg-mag");
+	}
 }

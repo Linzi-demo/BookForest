@@ -9,16 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-   <!-- <servlet-mapping>    
+   <servlet-mapping>    
      <servlet-name>default</servlet-name>    
      <url-pattern>*.js</url-pattern>    
      <url-pattern>*.css</url-pattern>    
      <url-pattern>/assets/**"</url-pattern>    
      <url-pattern>/images/**</url-pattern>    
+     <url-pattern>/plugins/**</url-pattern>
      <url-pattern>*.jpg</url-pattern>    
      <url-pattern>*.png</url-pattern>    
-     
- </servlet-mapping> -->
+ </servlet-mapping>
   <!-- 1. 启动spring容器 -->
 				<!-- needed for ContextLoaderListener -->
 				<context-param>

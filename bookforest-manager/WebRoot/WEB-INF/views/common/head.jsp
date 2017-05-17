@@ -15,8 +15,15 @@
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-components.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/custom.css">
-	<script src="/bookforest-manager/assets/js/jquery-1.11.1.min.js"></script>
+	<!-- <script src="/bookforest-manager/assets/js/jquery-1.11.1.min.js"></script> -->
 	
+	<!-- BootStrap Table -->
+	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+	
+	
+	<!--fontawesome  -->
+	<link rel="stylesheet" href="plugins/fontawesome/css/font-awesome.min.css">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
