@@ -23,8 +23,20 @@ public class User {
     private String lastIp;
     
     private String loginIp;
+    
+    private String imgUrl;
+    
+    
 
-    public String getUserId() {
+    public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+
+	public String getUserId() {
         return userId;
     }
 

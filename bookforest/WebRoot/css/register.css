@@ -1,0 +1,63 @@
+.my-top
+{
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
+/*输入框的大小*/
+.input-size
+{
+    height: 45px;
+    width: 250px;
+    padding-left: 10px;
+    font-size: 20px;
+
+    margin-left: 10px;
+
+    border: 1px solid #ddd;
+    color: #d4d4d4;
+}
+.input-size-mini
+{
+    height: 45px;
+    width: 100px;
+    padding-left: 10px;
+    font-size: 20px;
+
+    margin-left: 10px;
+
+    border: 1px solid #ddd;
+}
+/*每行的高度，及对齐*/
+.td-align
+{
+    text-align: right;
+}
+
+.td-height
+{
+    line-height: 70px;
+}
+.td-align-center
+{
+    text-align: center;
+}
+.td-font
+{
+    font-size: 17px;
+    font-family: "Microsoft YaHei UI";
+}
+
+/*注册用户按钮*/
+.submit-btn
+{
+    background-color: white;
+    border: 1px solid #ddd;
+    padding-top: 20px;
+    padding: 15px 85px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #6495ED;
+
+}

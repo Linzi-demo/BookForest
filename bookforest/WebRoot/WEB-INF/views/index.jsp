@@ -869,15 +869,16 @@
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4">
 							<div class="footer-content">
-								<form role="form" id="footer-form">
+							<!-- 用户注册表单 -->
+								<form role="form" id="footer-form" method="post"  action="doLogin">
 									<div class="form-group has-feedback">
 										<label class="sr-only" for="name2">用户名</label>
-										<input type="text" class="form-control" id="name2" placeholder="用户名" name="name2" required>
+										<input type="text" class="form-control" id="name2" placeholder="用户名" name="username" required>
 										<i class="fa fa-user form-control-feedback"></i>
 									</div>
 									<div class="form-group has-feedback">
 										<label class="sr-only" for="email2">密码</label>
-										<input type="email" class="form-control" id="email2" placeholder="密码" name="email2" required>
+										<input type="password" class="form-control" id="pwd2" placeholder="密码" name="passwd" required>
 										<i class="fa fa-eye-slash form-control-feedback"></i>
 									</div>
 									<div>
@@ -887,10 +888,11 @@
 									</div>
 									<div class="row" style="margin: 0px">
 										<div class="col-sm-5 col-xs-12" >
-											<div class="btn btn-default" >
+											<!-- <div class="btn btn-default" >
 												<i class="fa fa-sign-in" style="margin-right: 10px"></i>
 												登录
-											</div>
+											</div> -->
+											<input type="submit" style="margin-right: 10px" value="登录" class="btn btn-default">
 										</div>
 										<div class="col-sm-5 col-xs-12 col-sm-offset-1">
 											<a class="btn btn-default" data-toggle="modal" data-target="#regist-modal">

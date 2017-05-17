@@ -12,4 +12,16 @@ public class PageController {
 	{
 		return new ModelAndView("index");
 	}
+	
+	@RequestMapping("head")
+	public ModelAndView head()
+	{
+		return new ModelAndView("common/head");
+	}
+	
+	@RequestMapping("top")
+	public ModelAndView top()
+	{
+		return new ModelAndView("common/top");
+	}
 }
