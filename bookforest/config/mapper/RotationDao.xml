@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.bookforest.dao.rotation.RotationDao">
+ 
+ 	<resultMap type="com.bookforest.bean.Rotation" id="rotation">
+ 		<id column="slide_img_id" property="imgId"/>
+ 		<result column="slide_img_name"  property="imgName"/>
+ 		<result column="slide_img_url"  property="imgUrl"/>
+ 		<result column="slide_img_remark"  property="imgRemark"/>
+ 		<result column="slide_img_order"  property="order"/>
+ 		<result column="operator_id"  property="operatorId"/>
+ 		<result column="operator_time"  property="operatorTime"/>
+ 		<result column="state" property="imgState"/>
+ 	</resultMap>
+ 
+ 
+ 	<select id="getRotationAll" resultMap="rotation">
+ 			SELECT * FROM bf_slideimg ;
+ 	</select>
+ 	
+ 	<!-- public Integer addRotation(Rotation rotation); -->
+ 	<insert id="addRotation"  >
+ 		INSERT INTO 
+ 			bf_slideimg 
+ 		(slide_img_name,slide_img_url,slide_img_remark,slide_img_order,operator_id,operator_time,state) 
+ 			values
+ 		(#{imgName},#{imgUrl},#{imgRemark},#{order},#{operatorId},#{operatorTime},#{imgState})
+ 	</insert>
+ 	
+ 	<!--public Integer delRotationBatch(String[] imgId);  -->
+ 	<delete id="delRotationBatch" parameterType="int">
+ 			DELETE FROM bf_slideimg 
+ 					WHERE slide_img_id IN 
+ 			<foreach item="imgId" collection="array" open="(" separator="," close=")">
+            #{imgId}
+        	</foreach>
+ 	 </delete>
+ 	 
+ 	 <!-- public List<Rotation> getRotationByStateOrder(Integer state); -->
+ 	 <select id="getRotationByStateOrder" resultMap="rotation">
+ 	 		select * from bf_slideimg where state=#{state} order by slide_img_order
+ 	 </select>
+ </mapper>
+ 

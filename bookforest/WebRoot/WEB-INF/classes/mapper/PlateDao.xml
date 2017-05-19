@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.bookforest.dao.plate.PlateDao">
+ 
+ 	<!-- public List<Plate> getPlateAll(); -->
+ 	<select id="getPlateAll" resultType="com.bookforest.bean.Plate">
+ 		select * from bf_plate
+ 	</select>
+ 	
+ 	<!-- public List<Plate> getPlateByState(Integer plateState); -->
+ 	<select id="getPlateByState" resultType="com.bookforest.bean.Plate">
+ 			select * from bf_plate where plate_state=#{plateState}
+ 	</select>
+ 	
+ 	<!-- public int addPlate(Plate plate); -->
+ 	<insert id="addPlate">
+ 			INSERT INTO bf_plate(plate_name,plate_img,plate_info,plate_post,plate_state,operator_id,operator_time)
+ 			values(#{plateName},#{plateImg},#{plateInfo},#{platePost},#{plateState},#{operatorId},#{operatorTime})
+ 	</insert>
+ 	
+ 	<!-- public int delPlateBatch(String[] plateIds); -->
+ 	<delete id="delPlateBatch" parameterType="int">
+ 			DELETE FROM bf_plate
+ 					WHERE plate_id IN 
+ 			<foreach item="plateId" collection="array" open="(" separator="," close=")">
+            #{plateId}
+        	</foreach>
+ 	 </delete>
+ </mapper>
+ 

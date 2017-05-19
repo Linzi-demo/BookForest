@@ -15,17 +15,20 @@
 <jsp:include page="/top"></jsp:include>
 <!--头部结束-->
 <!--轮播图-->
+
+<c:if test="${rotations!=null}">
 <div class="row" style="margin-top: 52px">
 <div id="demo01" class="flexslider" style="height: 400px; border-radius: 0 0 10px 10px">
     <ul class="slides">
-        <li><div class="img"><img src="images/ad_yuetu.jpg" height="380" width="1000" alt="" /></div></li>
-        <li><div class="img"><img src="images/ad_yuetu.jpg" height="380" width="1000" alt="" /></div></li>
-        <li><div class="img"><img src="images/ad_nba.jpg" height="380" width="1000" alt="" /></div></li>
-        <li><div class="img"><img src="images/ad_stock.jpg" height="380" width="1000" alt="" /></div></li>
-        <li><div class="img"><img src="images/ad_auto.jpg" height="380" width="1000" alt="" /></div></li>
+    	<c:forEach var="rotation" items="${rotations }"> 
+    		<li><div class="img"><img src="${rotation.imgUrl }" height="380" width="1000" alt="" /></div></li>
+    	</c:forEach>
+        
     </ul>
 </div>
 </div>
+</c:if>
+
 <!--轮播图结束-->
 <!--主体开始-->
 <div class="container-fluid">
@@ -35,36 +38,22 @@
     <!--左侧-->
     <div class="col-sm-6 col-sm-offset-2" >
         <!--板块开始-->
-        <div class="row">
-            <p class="plate-p">
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-
-
-            </p>
-            <p>
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-                <a href="#" class="plate-a">
-                    <img src="images/20100120161805563.jpg" height="40px" width="40px" alt="" style="margin-right: 10px">
-                    短篇小说</a>
-                <a href="#" class="more-plate-a">更多板块<i class="fa fa-angle-double-right" style="margin-left: 10px"></i></a>
-            </p>
-
-        </div>
+        <c:if test="${plates!=null }">
+        		<div class="rowm">
+        			 <c:forEach var="plate" items="${plates }">
+        			 		<div class="col-sm-3" >
+        			 			<a href="plateIndex?plateId=${plate.plateId }" class="plate-a">
+				                    <img src="${plate.plateImg }" height="40px" width="40px" alt="" style="margin-right: 10px">
+				                    ${plate.plateName }</a>
+        			 		</div>
+        			 </c:forEach>
+        			 <div class="col-sm-3">
+        			 	<a href="plateAll" class="more-plate-a">更多板块<i class="fa fa-angle-double-right" style="margin-left: 10px"></i></a>
+        			 </div>
+        		</div>
+        </c:if>
+        
         <!--板块结束-->
-
         <!--文章列表开始-->
         <div class="row">
 
