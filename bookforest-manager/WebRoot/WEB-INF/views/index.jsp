@@ -6,7 +6,7 @@
 	
 	<jsp:include page="/head"/>
 </head>
-<body class="page-body">
+<body class="page-body" style="background-color: #eeeeee">
 	
 	<div class="page-container">
 			

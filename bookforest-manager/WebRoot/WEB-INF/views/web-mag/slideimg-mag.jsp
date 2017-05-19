@@ -7,38 +7,26 @@
 	<jsp:include page="/head"/>
 	<link rel="stylesheet" href="plugins/bootstrap-fileinput/css/fileinput.min.css">
 </head>
-<body class="page-body">
-	
+<body class="page-body" >
 	<div class="page-container">
-			
 		<!--左侧菜单  -->
 		<jsp:include page="/left"/>
 		<!-- 左侧菜单结束 -->
-		
 		<div class="main-content">
 			<!--头部  -->
 			<jsp:include page="/top"></jsp:include>	
 			<!--网站主体-->
 			<div class="page-title">
-
 				<div class="title-env">
 					<h1 class="title">轮播图管理</h1>
 				</div>
-
 				<div class="breadcrumb-env">
-
 					<ol class="breadcrumb bc-1">
 						<li>
-							<a href="index"><i class="fa-home"></i>主页</a>
-						</li>
-						<li class="active">
-
-							<strong>轮播图管理</strong>
-						</li>
+							<a href="index"><i class="fa-home"></i>主页</a></li>
+						<li class="active"><strong>轮播图管理</strong></li>
 					</ol>
-
 				</div>
-
 			</div>
 
 			<!-- 网站主体开始 -->
@@ -63,25 +51,29 @@
 								data-pagination="true"
 								data-show-columns="true"
                					data-id-field="imgId"
-               					data-click-to-select="true">
+               					data-click-to-select="true"
+               					data-side-pagination="client"
+               					data-page-list="[5,10,20,ALL]">
 					    <thead>
 					        <tr>
-					        	<th data-field="state" data-checkbox="true"></th>
-					            <th data-field="imgId">ID</th>
-					            <th data-field="imgName">名字</th>
-					            <th data-field="imgUrl">路径</th>
-					            <th data-field="imgRemark">备注</th>
-					            <th data-field="order">顺序</th>
-					            <th data-field="imgState">状态</th>
-					            <th data-field="operatorId">操作员</th>
-					            <th data-field="operatorTime">操作时间</th>
+					        	<th data-field="state" data-checkbox="true" data-valign="middle"></th>
+					            <th data-field="imgId" data-valign="middle">ID</th>
+					            <th data-field="imgName" data-valign="middle">名字</th>
+					            <th data-field="imgUrl"  data-width="200px" data-valign="middle">路径</th>
+					            <th data-field="rotationUrl"  data-width="200px" data-valign="middle">连接</th>
+					            <th data-field="imgRemark" data-valign="middle">备注</th>
+					            <th data-field="order" data-valign="middle">顺序</th>
+					            <th data-field="imgState" data-valign="middle">状态</th>
+					            <th data-field="operatorId" data-valign="middle">操作员</th>
+					            <th data-field="operatorTime" data-valign="middle">操作时间</th>
+					            <th data-field="operator" data-formatter="formatOperator" 
+					            		data-events="operateEvents" data-width="250px" data-valign="middle">操作时间</th>
 					        </tr>
 					    </thead>
 					</table>
 				</div>
 			</div>
 			
-	
 			<!--网站主体结束-->
 			<jsp:include page="/footer"></jsp:include>
 		</div>
@@ -118,7 +110,16 @@
 										<input type="hidden"  name="url">
 									</div>
 								</div>
+								<div class="form-group-separator"></div>
 								
+								<div class="form-group">
+									<label class="col-sm-2 col-sm-offset-1 control-label" for="rotationUrl">连接</label>
+									
+									<div class="col-sm-6">
+										<input type="text" name="rotationUrl" class="form-control" id="rotationUrl" placeholder="Rotation Url">
+										
+									</div>
+								</div>
 								<div class="form-group-separator"></div>
 								
 								<div class="form-group">
@@ -177,6 +178,51 @@
 		          </div>
 		        </div>
 		      </div>
+		      <div class="modal fade" id="delSingleModal" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" data-backdrop="static">
+		        <div class="modal-dialog" role="document">
+		          <div class="modal-content">
+		            <div class="modal-header">
+		              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		              <h4 class="modal-title " id="delModalLabel">删除确认</h4>
+		            </div>
+		            <div class="modal-body">确定需要删除该记录？</div>
+		            <div class="modal-footer">
+		              <button type="button" class="btn btn-default" data-dismiss="modal">
+		                <i class="glyphicon glyphicon-remove"></i> 取消
+		              </button>
+		              <button type="button" class="btn btn-danger"  onclick="delSingle(imgId)">
+		                <i class="glyphicon glyphicon-minus"></i> 删除
+		              </button>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		   
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" data-backdrop="static">
+						<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<!-- <span aria-hidden="true">&times;</span> -->
+									</button>
+									<h4 class="modal-title" id="editModalLabel">轮播图预览</h4>
+								</div>
+								<div class="modal-body">
+										<div class="row text-center" >
+											<div class="col-sm-12" id="rotationInfo">
+												
+											</div>
+										</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">
+										<i class="glyphicon glyphicon-remove"></i> 取消
+									</button>
+									
+								</div>
+							</div>
+						</div>
+					</div>
 	<!--  添加弹出结束-->
 
 	
@@ -246,6 +292,28 @@
     	$("#addForm").submit(function(){
     		return false;
     	});
+    	
+    	
     });
+    
+    var imgId='';
+     window.operateEvents = {
+    'click .info-a': function (e, value, row) {
+        var imgUrl=row.imgUrl;
+        if(imgUrl!=null)
+        	{
+        		$("#rotationInfo").html("<img src="+imgUrl+" style='display: block; width: 100%; height:auto' > ");
+        		$("#infoModal").modal('show');
+        	}
+    },
+    'click .alert-a': function (e, value, row) {
+        alert('You click remove action, row: ' + JSON.stringify(row));
+    },
+    'click .del-a': function (e, value, row) {
+    	imgId="|"+row.imgId;
+        $("#delSingleModal").modal('show');
+    }
+}; 
+    
 </script>
 </html>

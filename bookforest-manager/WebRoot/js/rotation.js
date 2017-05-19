@@ -9,6 +9,13 @@ function initTable(){
 		})
 }
 
+function formatOperator()
+{
+	return "<a class='btn btn btn-warning info-a' href='javascript:void(0)'><i class='fa fa-eye'></i>详情</a> "
+				+"<a class='btn btn btn-info alert-a' href='javascript:void(0)'><i class='fa fa-pencil'></i>修改</a>"
+				+"<a class='btn btn btn-danger del-a' href='javascript:void(0)'><i class='fa fa-close'></i>删除</a>";
+}
+
 function add()
 {
 	$('#addForm')[0].reset();
@@ -22,7 +29,6 @@ function showDel()
 function del()
 {
 	var keys=getKeySelections();
-	
 	$.ajax({
 		 type: "POST",
 		 dataType : 'json',
@@ -30,6 +36,25 @@ function del()
 		 data:{"imgIds":keys},
 		 success: function(data){	
 				  $("#delModal").modal('hide');
+				  $('#rotationTable').bootstrapTable('refresh', {
+						url : "rotationAllJson"
+					});
+		 },
+		 error : function(xhr, type) {
+				alert('删除失败！');
+			}
+	 });
+}
+function delSingle(imgId)
+{
+	console.log(imgId);
+	$.ajax({
+		 type: "POST",
+		 dataType : 'json',
+		 url: "delRotationBatch",
+		 data:{"imgIds":imgId},
+		 success: function(data){	
+				  $("#delSingleModal").modal('hide');
 				  $('#rotationTable').bootstrapTable('refresh', {
 						url : "rotationAllJson"
 					});
@@ -70,7 +95,7 @@ function save()
 					url : "rotationAllJson"
 				});
 				$('#addForm')[0].reset();
-				
+				$('.file-preview-thumbnails').html('');
 				
 			}
 			else
@@ -84,3 +109,5 @@ function save()
 		}
 	});
 }
+
+

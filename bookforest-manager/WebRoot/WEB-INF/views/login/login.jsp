@@ -31,7 +31,7 @@
 					
 					<div class="form-group">
 						<button type="submit"  id="submitBtn" class="btn btn-dark  btn-block text-left">
-							<i class="fa-lock"></i>
+							<i class="fa fa-lock"></i>
 							登录
 						</button>
 					</div>

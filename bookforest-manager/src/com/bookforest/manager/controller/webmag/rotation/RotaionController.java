@@ -88,6 +88,7 @@ public class RotaionController {
 		rotation.setOperatorTime(df.format(new Date()));
 		rotation.setImgName(Maps.getString(parameter, "imgName"));
 		rotation.setImgRemark(Maps.getString(parameter, "imgRemark"));
+		rotation.setRotationUrl(Maps.getString(parameter, "rotationUrl"));
 		if(Maps.getString(parameter, "state")==null)
 		{
 			rotation.setImgState(0);
@@ -96,7 +97,7 @@ public class RotaionController {
 		{
 			rotation.setImgState(1);
 		}
-		rotation.setImgUrl("http://localhost/pc/"+Maps.getString(parameter, "url"));
+		rotation.setImgUrl("http://localhost/pic/"+Maps.getString(parameter, "url"));
 		rotation.setOrder(Maps.getInt(parameter, "order"));
 		
 		flag=rotationService.addRotation(rotation);

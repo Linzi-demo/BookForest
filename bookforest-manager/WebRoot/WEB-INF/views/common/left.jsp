@@ -51,6 +51,11 @@
 								</a>
 							</li>
 							<li>
+								<a href="plate-manager">
+									<span class="title">板块管理</span>
+								</a>
+							</li>
+							<li>
 								<a href="menumanager">
 									<span class="title">菜单管理</span>
 								</a>

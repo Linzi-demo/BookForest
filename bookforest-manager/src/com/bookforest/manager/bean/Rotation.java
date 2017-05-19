@@ -22,6 +22,18 @@ public class Rotation {
 	private Integer imgState;
 	
 	private String operator;
+	
+	private String rotationUrl;
+	
+	
+
+	public String getRotationUrl() {
+		return rotationUrl;
+	}
+
+	public void setRotationUrl(String rotationUrl) {
+		this.rotationUrl = rotationUrl;
+	}
 
 	public Integer getImgId() {
 		return imgId;

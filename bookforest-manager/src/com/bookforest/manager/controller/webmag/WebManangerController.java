@@ -41,4 +41,11 @@ public class WebManangerController {
 	{
 		return new ModelAndView("web-mag/slideimg-mag");
 	}
+	
+	@RequestMapping("plate-manager")
+	public ModelAndView platemanager(HttpServletRequest request)
+	{
+		request.setAttribute("pageName", "板块管理");
+		return new ModelAndView("web-mag/plate-mag");
+	}
 }

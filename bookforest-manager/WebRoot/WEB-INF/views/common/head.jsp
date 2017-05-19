@@ -8,18 +8,20 @@
 <meta name="author" content="" />
 <!-- <title>书林 - 后台管理</title> -->
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/fonts/linecons/css/linecons.css">
-	<link rel="stylesheet" href="/bookforest-manager/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+	<!-- <link rel="stylesheet" href="/bookforest-manager/assets/css/fonts/fontawesome/css/font-awesome.min.css"> -->
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-core.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-forms.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-components.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="/bookforest-manager/assets/css/custom.css">
-	<!-- <script src="/bookforest-manager/assets/js/jquery-1.11.1.min.js"></script> -->
+	<script src="/bookforest-manager/assets/js/jquery-1.11.1.min.js"></script>
 	
 	<!-- BootStrap Table -->
+	<script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="plugins/bootstrap-table/bootstrap-table.css">
+	
 	
 	
 	<!--fontawesome  -->

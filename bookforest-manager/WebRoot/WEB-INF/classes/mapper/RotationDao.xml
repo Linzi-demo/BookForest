@@ -12,6 +12,7 @@
  		<result column="operator_id"  property="operatorId"/>
  		<result column="operator_time"  property="operatorTime"/>
  		<result column="state" property="imgState"/>
+ 		<result column="rotation_url" property="rotationUrl"/>
  	</resultMap>
  
  
@@ -23,9 +24,9 @@
  	<insert id="addRotation"  >
  		INSERT INTO 
  			bf_slideimg 
- 		(slide_img_name,slide_img_url,slide_img_remark,slide_img_order,operator_id,operator_time,state) 
+ 		(slide_img_name,slide_img_url,slide_img_remark,slide_img_order,operator_id,operator_time,state,rotation_url) 
  			values
- 		(#{imgName},#{imgUrl},#{imgRemark},#{order},#{operatorId},#{operatorTime},#{imgState})
+ 		(#{imgName},#{imgUrl},#{imgRemark},#{order},#{operatorId},#{operatorTime},#{imgState},#{rotationUrl})
  	</insert>
  	
  	<!--public Integer delRotationBatch(String[] imgId);  -->
