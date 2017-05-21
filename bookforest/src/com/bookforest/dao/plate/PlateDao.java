@@ -22,4 +22,6 @@ public interface PlateDao {
 	
 	//根据状态查找板块
 	public List<Plate> getPlateByState(Integer plateState);
+	
+	
 }

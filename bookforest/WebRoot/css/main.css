@@ -127,6 +127,7 @@ body{
 
 
 /*板块超链接*/
+
 .plate-a
 {
     border: 1px solid rgba(115, 115, 115, 0.29);
@@ -144,7 +145,6 @@ body{
 
 
     margin-right: 20px;
-    
 }
 .plate-a:focus
 {
@@ -502,4 +502,48 @@ section .row .col-md-4
 {
     margin: 0 0 25px;
 }
+
+
+/*
+单个板块详细
+*/
+.plate-img-a
+{
+    float: left;
+    width: 80px;
+    height: 80px;
+
+}
+.plate-img-a img
+{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 10%;
+}
+
+ .plate-info
+{
+
+    padding-top: 10px;
+    font-size: 14px;
+    color: #969696;
+
+}
+
+ .plate-title
+{
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    color: black;
+    vertical-align: middle;
+}
+
+.plate-post
+{
+    color: #acacac;
+    font-weight: 600;
+}
+
 

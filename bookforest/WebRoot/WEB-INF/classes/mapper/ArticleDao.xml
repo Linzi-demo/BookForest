@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.bookforest.dao.article.ArticleDao">
+ 
+ <!-- public int addArticle(Article article); -->
+ 		<insert id="addArticle">
+ 			insert into 
+ 				bf_article(article_id,article_title,author,content,date,type,tag,word_num,size,article_info,article_img) 
+ 			values
+ 				(#{articleId},#{articleTitle},#{author},#{content},#{date},#{type},#{tag},#{wordNum},#{size},#{articleInfo},#{articleImg})
+ 		</insert>
+ 	
+ 	<!-- public List<Article> getArticleAll(); -->
+ 	<resultMap type="com.bookforest.bean.Article" id="article">
+ 			<id column="article_id" property="articleId"></id>
+ 			<result column="article_title" property="articleTitle"/>
+ 			<result column="article_img" property="articleImg"/>
+ 			<result column="author" property="author"/>
+ 			<result column="content" property="content"/>
+ 			<result column="date" property="date"/>
+ 			<result column="type" property="type"/>
+ 			<result column="tag" property="tag"/>
+ 			<result column="word_num" property="wordNum"/>
+ 			<result column="size" property="size"/>
+ 			<result column="article_info" property="articleInfo"/>
+ 			<association  property="authorUser" javaType="com.bookforest.bean.User">
+ 					<id column="user_id" property="userId"/>
+ 					<result column="user_name" property="userName"/>
+ 					<result column="img_url" property="imgUrl"/>
+ 			</association>
+ 	</resultMap>
+ 		<select id="getArticleAllByType" resultMap="article">
+ 				SELECT a.*,u.`user_id` user_id,u.`user_name` user_name,u.`img_url` img_url 
+ 					FROM bf_article a,bf_user u 
+ 				WHERE 
+ 					a.`type`=#{type} AND a.`author`=u.`user_id` 
+ 		</select>
+ 		
+ 		<!-- public List<Article> getArticleById(String articleId); -->
+ 		<select id="getArticleById" resultMap="article">
+ 				SELECT a.*,u.`user_id` user_id,u.`user_name` user_name,u.`img_url` img_url 
+ 					FROM bf_article a,bf_user u 
+ 				WHERE 
+ 					a.`article_id`=#{articleId} AND a.`author`=u.`user_id` 
+ 		</select>
+ </mapper>
+ 

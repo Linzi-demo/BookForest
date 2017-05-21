@@ -83,7 +83,7 @@
 												<li><a href="#services">价格</a></li>
 												<li><a href="#portfolio">模板</a></li>
 												<li><a href="#clients">社区</a></li>
-												<li><a href="#contact"> <i class="fa fa-user"></i> 登录|注册</a></li>
+												<!-- <li><a href="#contact"> <i class="fa fa-user"></i> 登录|注册</a></li> -->
 											</ul>
 										</div>
 
@@ -116,7 +116,7 @@
 							<h1 class="text-center"> 只为极简的写作和阅读体验 </h1>
 							<p class="lead text-center">Only for minimalist writing and reading experience</p>
 							<p class="text-center" style="padding-top: 50px">
-								<a href="#contact" class="btn btn-default" style="padding:16px 30px 16px 30px; font-size: 20px">
+								<a href="write" class="btn btn-default" style="padding:16px 30px 16px 30px; font-size: 20px">
 									<i class="fa fa-pencil" style="margin-right: 10px"></i>
 									提笔写作
 								</a>
@@ -845,7 +845,7 @@
 					</div>
 				</div>
 				<p class="text-center" style="margin-top: 80px; padding-bottom: 30px;">
-					<a href="#" class="btn btn-default" style="padding:16px 30px 16px 30px; font-size: 20px;background: transparent;text-decoration: none">
+					<a href="community" class="btn btn-default" style="padding:16px 30px 16px 30px; font-size: 20px;background: transparent;text-decoration: none">
 						<i class="fa fa-hand-o-right" style="margin-right: 10px"></i>
 						前往社区
 					</a>
@@ -860,16 +860,15 @@
 		<!-- ================ -->
 		<footer id="footer">
 
-			<!-- .footer start -->
-			<!-- ================ -->
-			<div class="footer section footer-section">
+			
+			<!-- <div class="footer section footer-section">
 				<div class="container">
 					<h1 class="title text-center" id="contact">登&nbsp; &nbsp;录</h1>
 					<div class="space"></div>
 					<div class="row">
 						<div class="col-sm-4 col-sm-offset-4">
 							<div class="footer-content">
-							<!-- 用户注册表单 -->
+							用户注册表单
 								<form role="form" id="footer-form" method="post"  action="doLogin">
 									<div class="form-group has-feedback">
 										<label class="sr-only" for="name2">用户名</label>
@@ -888,10 +887,7 @@
 									</div>
 									<div class="row" style="margin: 0px">
 										<div class="col-sm-5 col-xs-12" >
-											<!-- <div class="btn btn-default" >
-												<i class="fa fa-sign-in" style="margin-right: 10px"></i>
-												登录
-											</div> -->
+											
 											<input type="submit" style="margin-right: 10px" value="登录" class="btn btn-default">
 										</div>
 										<div class="col-sm-5 col-xs-12 col-sm-offset-1">
@@ -906,9 +902,9 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- .footer end -->
-			<div class="modal fade" id="regist-modal" tabindex="-1" role="dialog" aria-labelledby="regist-modal-label" aria-hidden="true">
+			<!-- <div class="modal fade" id="regist-modal" tabindex="-1" role="dialog" aria-labelledby="regist-modal-label" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -923,7 +919,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!-- .subfooter start -->
 			<!-- ================ -->
 			<div class="subfooter">

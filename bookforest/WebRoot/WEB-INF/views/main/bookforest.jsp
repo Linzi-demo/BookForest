@@ -39,9 +39,9 @@
     <div class="col-sm-6 col-sm-offset-2" >
         <!--板块开始-->
         <c:if test="${plates!=null }">
-        		<div class="rowm">
+        		<div class="row plate-row" style=" margin-left:-10px;padding:0">
         			 <c:forEach var="plate" items="${plates }">
-        			 		<div class="col-sm-3" >
+        			 		<div class="col-sm-3" style="padding-left:0px; padding-bottom:15px;">
         			 			<a href="plateIndex?plateId=${plate.plateId }" class="plate-a">
 				                    <img src="${plate.plateImg }" height="40px" width="40px" alt="" style="margin-right: 10px">
 				                    ${plate.plateName }</a>
@@ -56,9 +56,51 @@
         <!--板块结束-->
         <!--文章列表开始-->
         <div class="row">
+			<c:if test="${articles!=null }">
+				 <ul class="article-list">
+				 <c:forEach var="article" items="${articles }">
+				 	 <li>
+                    <div class="content">
+                        <div class="single-article-top">
+                            <a href="" class="user-img-a">
+                                <img src="${article.authorUser.imgUrl }" alt="" class="img-circle user-image-size">
+                                ${article.authorUser.userName }
+                            </a>
+                            <span class="article-time">
+                            	${article.date }
+                            </span>
+                        </div>
+                        <div class="acticle-body">
+                            <a href="showArticle?articleId=${article.articleId }" class="artile-title">${article.articleTitle }</a>
+                            <p class="article-p">
+                                ${article.articleInfo }
+                            </p>
+                            <a class="article-plate-a" href="">
+                                短篇小说
+                            </a>
+                            <a class="article-info-a" href="">
+                                <i class="fa fa-eye"></i>
+                                2312
+                            </a>
+                            <a class="article-info-a" href="">
+                                <i class="fa fa-comment"></i>
+                                2312
+                            </a>
+                            <a class="article-info-a" href="">
+                                <i class="fa fa-heart"></i>
+                                2312
+                            </a>
 
-            <ul class="article-list">
-                <li class="" >
+                        </div>
+
+                    </div>
+                    <a class="img-a" href="">
+                        <img class="article-img" src="${article.articleImg }" alt="">
+                    </a>
+                </li>
+				 </c:forEach>
+               
+                <!-- <li class="" >
                     <div class="content">
                         <div class="single-article-top">
                             <a href="" class="user-img-a">
@@ -178,48 +220,10 @@
                         <img class="article-img" src="images/demo-1.jpg" alt="">
                     </a>
                 </li>
-                <li class="" >
-                    <div class="content">
-                        <div class="single-article-top">
-                            <a href="" class="user-img-a">
-                                <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                测试用户
-                            </a>
-                            <span class="article-time">
-                            5.15 12:00
-                            </span>
-                        </div>
-                        <div class="acticle-body">
-                            <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                            <p class="article-p">
-                                1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                            </p>
-                            <a class="article-plate-a" href="">
-                                短篇小说
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-eye"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-comment"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-heart"></i>
-                                2312
-                            </a>
-
-                        </div>
-
-                    </div>
-                    <a class="img-a" href="">
-                        <img class="article-img" src="images/demo-1.jpg" alt="">
-                    </a>
-                </li>
-
+ -->
             </ul>
+			</c:if>
+           
 
         </div>
 

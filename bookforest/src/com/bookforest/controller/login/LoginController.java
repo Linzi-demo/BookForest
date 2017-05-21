@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bookforest.bean.User;
 import com.bookforest.service.user.UserService;
@@ -19,14 +20,20 @@ public class LoginController {
 	
 	@Autowired
 	UserService userService;
+	
+	@RequestMapping("login")
+	public ModelAndView login(HttpServletRequest request)
+	{
+		return new ModelAndView("login/login");
+	}
 
 	@RequestMapping("doLogin")
 	public void doLogin(HttpServletRequest request,HttpServletResponse response) throws Exception
 	{
 		Map<String, Object> parameter = RequestUtil.getRequestParameter(request);
-		
+		System.out.println(parameter);
 		String userName=(String) parameter.get("username");
-		String userPwd=(String) parameter.get("passwd");
+		String userPwd=(String) parameter.get("password");
 		
 		if(userName!=null && userPwd !=null)
 		{

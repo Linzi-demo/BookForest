@@ -12,20 +12,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">书林</a>
+            <a class="navbar-brand" href="community">书林</a>
         </div>
 
         <!-- 左上角的导航 -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav" >
-                <li ><a href="#"><i class="fa fa-home" style="margin-right: 3px"></i>主页<span class="sr-only">(current)</span></a></li>
+                <li ><a href="community"><i class="fa fa-home" style="margin-right: 3px"></i>主页<span class="sr-only">(current)</span></a></li>
                
                 <li data-toggle="modal" data-target="#about"><a href="/index" >关于</a></li>
             </ul>
 
 			<ul id="btn-ul" class="nav navbar-nav navbar-right">
 				<c:if test="${loginUser==null }">
-					<li><a class="nav-a" href="#">登陆 | 注册</a></li>
+					<li><a class="nav-a" href="login">登陆 | 注册</a></li>
 				</c:if>
 				<c:if test="${loginUser!=null }">
 					<li class="dropdown user">
@@ -40,8 +40,7 @@
                         </ul>
                     </li>
 			</c:if>
-				<li><a class="nav-a-write" href="#"> <i
-							class="fa fa-paint-brush" style="margin-right: 5px"></i> 写文章
+				<li><a class="nav-a-write" href="write"> <i class="fa fa-paint-brush" style="margin-right: 5px"></i> 写文章
 					</a></li>
 			</ul>
 			

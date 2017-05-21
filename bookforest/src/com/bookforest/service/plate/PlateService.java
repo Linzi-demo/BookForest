@@ -40,4 +40,12 @@ public class PlateService {
 		
 		return plates;
 	}
+	
+	public List<Plate> getPlateShow()
+	{
+		List<Plate> plates=plateDao.getPlateByState(1);
+		plates.addAll(plateDao.getPlateByState(2));
+		
+		return plates;
+	}
 }
