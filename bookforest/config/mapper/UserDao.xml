@@ -1,11 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
- <mapper namespace="com.bookforest.dao.UserDao">
+ <mapper namespace="com.bookforest.dao.user.UserDao">
  	
  	<!-- 根据用户名和密码查找用户 -->
  	<select id="getUserByNameAndPwd" resultType="com.bookforest.bean.User">
  			SELECT * FROM bf_user WHERE user_name=#{userName} AND user_pwd=#{userPwd}
  	</select>
  
+ 	<!-- public User getUserById(String userId); -->
+ 	<select id="getUserById" resultType="com.bookforest.bean.User">
+ 		SELECT * FROM bf_user WHERE user_id=#{userId} 
+ 	</select>
+ 	
+ 	<resultMap type="com.bookforest.bean.UserMeta" id="userMeta">
+ 		<id column="user_id" property="userId"/>
+ 		<result column="user_name" property="userName"/>
+ 		<result column="img_url" property="imgUrl"/>
+ 		<association property="articleNum" select="com.bookforest.dao.article.ArticleDao.getArticleNum" column="user_id"></association>
+ 		<association property="attentionNum" select="com.bookforest.dao.user.UserDao.getUserAttNum" column="user_id"></association>
+ 		<association property="followNum" select="com.bookforest.dao.user.UserDao.getUserFollowNum" column="user_id"></association>
+ 	</resultMap>
+ 	
+ 	<!-- public User getUserMetaById(String userId); -->
+ 	<select id="getUserMetaById" resultMap="userMeta">
+ 		SELECT user_id,user_name,img_url FROM bf_user  WHERE user_id=#{userId}
+ 	</select>
+ 	
+ 	<!-- public Integer getUserExist(String userName); -->
+ 	<select id="getUserExist" resultType="int">
+ 		SELECT count(*) FROM bf_user WHERE user_name=#{userName} 
+ 	</select>
+ 	
+ 	<!-- public Integer getEmailExist(String email); -->
+ 	<select id="getEmailExist" resultType="int">
+ 		SELECT count(*) FROM bf_user WHERE email=#{email} 
+ 	</select>
+ 	
+ 	<!-- public Integer addAttentionUser -->
+ 	<insert id="addAttentionUser">
+ 		INSERT INTO bf_user_user(user_id,att_user_id,att_date) values(#{userId},#{attUserId},#{sysDate})
+ 	</insert>
+ 	
+ 	<!-- public Integer getUserAtt( -->
+ 	<select id="getUserAtt" resultType="int">
+ 		SELECT count(*) from bf_user_user WHERE user_id=#{userId} and att_user_id=#{attUserId}
+ 	</select>
+ 	
+ 	<!--public Integer delAttentionUser  -->
+ 	<delete id="delAttentionUser">
+ 		DELETE FROM bf_user_user WHERE user_id=#{userId} AND att_user_id=#{attUserId}
+ 	</delete>
+ 	
+ 	<!-- public Integer getUserAttNum(String userId); -->
+ 	<select id="getUserAttNum"  resultType="int">
+ 		SELECT COUNT(*) FROM bf_user_user WHERE user_id=#{userId}
+ 	</select>
+ 	
+ 	<!-- public Integer getUserFollowNum(String userId); -->
+ 	<select id="getUserFollowNum" resultType="int">
+ 		SELECT COUNT(*) FROM bf_user_user WHERE att_user_id=#{userId}
+ 	</select>
  </mapper>

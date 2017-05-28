@@ -44,7 +44,7 @@ public class RotaionController {
     @ResponseBody
     public Map<String, Object> uploadFile(MultipartFile imgFile)
             throws IllegalStateException, IOException {
-		System.out.println(imgFile);
+		/*System.out.println(imgFile);*/
         // 原始名称
         String oldFileName = imgFile.getOriginalFilename(); // 获取上传文件的原名
 //      System.out.println(oldFileName);

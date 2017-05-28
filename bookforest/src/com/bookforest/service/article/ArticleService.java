@@ -35,4 +35,43 @@ public class ArticleService {
 		
 		return article;
 	}
+	
+	public List<Article> getArticleByAuthor(String userId)
+	{
+		List<Article> articleByAuthor = articleDao.getArticleByAuthor(userId);
+		
+		return articleByAuthor;
+	}
+	
+	public String getArticleByAuthorToString(String userId)
+	{
+		List<Article> articleByAuthor = articleDao.getArticleByAuthor(userId);
+		String result="";
+		for(Article a:articleByAuthor)
+		{
+			result=result+
+						"<li><span class=\"article-title\">"
+								+a.getArticleTitle()
+								+"</span><button id=\""+
+									a.getArticleId()
+								+"\" onclick=\"sub('"+
+									a.getArticleId()
+								+"')\" class=\"btn btn-success\" data-toggle=\"tooltip\" data-placement=\"right\" >投稿</button></li>";
+			
+		}
+		
+		return result;
+	}
+	
+	public List<Article> getPlateArticleRec(String plateId)
+	{
+		List<Article> articles = articleDao.getArticleByPlateId(plateId, 1, 1);
+		
+		return articles;
+	}
+	
+	public List<Article> getArticleMoreByAuthor(String userId)
+	{
+		return articleDao.getArticleMoreByAuthor(userId);
+	}
 }

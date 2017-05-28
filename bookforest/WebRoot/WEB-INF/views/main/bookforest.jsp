@@ -62,7 +62,7 @@
 				 	 <li>
                     <div class="content">
                         <div class="single-article-top">
-                            <a href="" class="user-img-a">
+                            <a href="userpage?uid=${article.authorUser.userId }" class="user-img-a">
                                 <img src="${article.authorUser.imgUrl }" alt="" class="img-circle user-image-size">
                                 ${article.authorUser.userName }
                             </a>
@@ -100,127 +100,7 @@
                 </li>
 				 </c:forEach>
                
-                <!-- <li class="" >
-                    <div class="content">
-                        <div class="single-article-top">
-                            <a href="" class="user-img-a">
-                                <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                测试用户
-                            </a>
-                            <span class="article-time">
-                            5.15 12:00
-                            </span>
-                        </div>
-                        <div class="acticle-body">
-                            <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                            <p class="article-p">
-                                1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                            </p>
-                            <a class="article-plate-a" href="">
-                                短篇小说
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-eye"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-comment"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-heart"></i>
-                                2312
-                            </a>
-
-                        </div>
-
-                    </div>
-                    <a class="img-a" href="">
-                        <img class="article-img" src="images/demo-1.jpg" alt="">
-                    </a>
-                </li>
-                <li class="" >
-                    <div class="content">
-                        <div class="single-article-top">
-                            <a href="" class="user-img-a">
-                                <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                测试用户
-                            </a>
-                            <span class="article-time">
-                            5.15 12:00
-                            </span>
-                        </div>
-                        <div class="acticle-body">
-                            <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                            <p class="article-p">
-                                1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                            </p>
-                            <a class="article-plate-a" href="">
-                                短篇小说
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-eye"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-comment"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-heart"></i>
-                                2312
-                            </a>
-
-                        </div>
-
-                    </div>
-                    <a class="img-a" href="">
-                        <img class="article-img" src="images/demo-1.jpg" alt="">
-                    </a>
-                </li>
-                <li class="" >
-                    <div class="content">
-                        <div class="single-article-top">
-                            <a href="" class="user-img-a">
-                                <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                测试用户
-                            </a>
-                            <span class="article-time">
-                            5.15 12:00
-                            </span>
-                        </div>
-                        <div class="acticle-body">
-                            <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                            <p class="article-p">
-                                1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                            </p>
-                            <a class="article-plate-a" href="">
-                                短篇小说
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-eye"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-comment"></i>
-                                2312
-                            </a>
-                            <a class="article-info-a" href="">
-                                <i class="fa fa-heart"></i>
-                                2312
-                            </a>
-
-                        </div>
-
-                    </div>
-                    <a class="img-a" href="">
-                        <img class="article-img" src="images/demo-1.jpg" alt="">
-                    </a>
-                </li>
- -->
+               
             </ul>
 			</c:if>
            
@@ -232,8 +112,94 @@
     </div>
     <!--左侧结束-->
     <!--右侧-->
-    <div class="col-sm-3">
+    <div class="col-sm-3 " >
 
+        <div class="right-list-a" style="margin-left: 20px">
+            <a class="right-a" href="">
+                <img src="images/right-1.png" alt="">
+            </a>
+            <a class="right-a" href="">
+                <img src="images/right-02.png" alt="">
+            </a>
+            <a class="right-a" href="">
+                <img src="images/right-03.png" alt="">
+            </a>
+            <a class="right-a" href="">
+                <img src="images/right-04.png" alt="">
+            </a>
+        </div>
+
+            <div style="margin-left: 20px;margin-top: 50px">
+                <p style="border-left:2px solid #2BAF77 ;color: #a4a4a4;padding-left: 10px">推荐作者</p>
+
+                <ul class="recommend-list" style="margin-top: 20px">
+                    <li>
+                        <div class="author">
+                            <a class="user-img-a" href="">
+                                <img src="images/user-05.png" alt="">
+                            </a>
+                            <div class="info">
+                                <span class="tag">作者</span>
+                                <span class="name"> <a href=""> 测试用户 </a></span>
+                                <div class="meta">
+                                    <span class="publish-time">写了319.7K字 · 17.2K喜欢</span>
+
+                                </div>
+                            </div>
+                            <a href="" class="follow-a"> <i class="fa fa-plus" style="margin-right: 2px"> </i> 关注</a>
+                        </div>
+
+                    </li><li>
+                        <div class="author">
+                            <a class="user-img-a" href="">
+                                <img src="images/user-05.png" alt="">
+                            </a>
+                            <div class="info">
+                                <span class="tag">作者</span>
+                                <span class="name"> <a href=""> 测试用户 </a></span>
+                                <div class="meta">
+                                    <span class="publish-time">写了319.7K字 · 17.2K喜欢</span>
+
+                                </div>
+                            </div>
+                            <a href="" class="follow-a"> <i class="fa fa-plus" style="margin-right: 2px"> </i> 关注</a>
+                        </div>
+
+                    </li><li>
+                        <div class="author">
+                            <a class="user-img-a" href="">
+                                <img src="images/user-05.png" alt="">
+                            </a>
+                            <div class="info">
+                                <span class="tag">作者</span>
+                                <span class="name"> <a href=""> 测试用户 </a></span>
+                                <div class="meta">
+                                    <span class="publish-time">写了319.7K字 · 17.2K喜欢</span>
+
+                                </div>
+                            </div>
+                            <a href="" class="follow-a"> <i class="fa fa-plus" style="margin-right: 2px"> </i> 关注</a>
+                        </div>
+
+                    </li><li>
+                        <div class="author">
+                            <a class="user-img-a" href="">
+                                <img src="images/user-05.png" alt="">
+                            </a>
+                            <div class="info">
+                                <span class="tag">作者</span>
+                                <span class="name"> <a href=""> 测试用户 </a></span>
+                                <div class="meta">
+                                    <span class="publish-time">写了319.7K字 · 17.2K喜欢</span>
+
+                                </div>
+                            </div>
+                            <a href="" class="follow-a"> <i class="fa fa-plus" style="margin-right: 2px"> </i> 关注</a>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
     </div>
     <!--右侧结束-->
 </div>

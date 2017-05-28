@@ -5,6 +5,20 @@ body{
 .navbar-right {
     margin-right: -120px;
 }
+
+#user-choose
+{
+	padding-top: 15px
+}
+#user-choose li
+{
+	margin-bottom: 10px;
+	font-size: 17px;
+} 
+#user-choose li i
+{
+	color: #2baf77;
+}
 /*
 登录注册按钮样式
 */
@@ -377,6 +391,11 @@ section .row .col-md-4
     margin: 0 auto;
 }
 
+.show-content p img
+{
+	display: block;
+	width: 100%
+} 
 /*文章标题*/
 .article-main h3
 {
@@ -389,7 +408,8 @@ section .row .col-md-4
 /*头像*/
 .author
 {
-    margin-bottom: 45px;
+	margin-top:30px;
+    margin-bottom: 40px;
 }
 
 .author .user-img-a
@@ -502,7 +522,100 @@ section .row .col-md-4
 {
     margin: 0 0 25px;
 }
+.show-footer
+{
+    width: 700px;
+    margin: 30px auto;
 
+
+}
+.bookmark-div
+{
+    width: 60%;
+
+
+}
+.bookmark-a
+{
+    font-size: 12px;
+    color: #9b9b9b;
+}
+.copyright
+{
+    float: right;
+    margin-top: 5px;
+    font-size: 12px;
+
+    color: #9b9b9b;
+}
+.modal-wrap
+{
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    font-size: 12px;
+
+}
+
+.follow-detail {
+    padding: 25px;
+    background-color: hsla(0,0%,71%,.1);
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 700px;
+    margin: 0 auto;
+}
+.follow-detail .info {
+    min-height: 47px;
+}
+.follow-detail .info .title {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
+    color: black;
+    text-decoration: none;
+}
+.follow-detail .avatar {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 48px;
+    height: 48px;
+}
+
+.follow, .follow-cancel, .follow-each, .following {
+    padding: 8px 22px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+}
+.follow-detail .info {
+    min-height: 47px;
+}
+.follow-detail .signature {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e1e1;
+}
+.follow-detail .signature span {
+    color: #969696;
+}
+.follow-detail .btn {
+    float: right;
+    margin-top: 4px;
+    padding: 8px 0;
+    width: 100px;
+    font-size: 16px;
+}
 
 /*
 单个板块详细
@@ -545,5 +658,326 @@ section .row .col-md-4
     color: #acacac;
     font-weight: 600;
 }
+.right-list-a .right-a
+{
+    display: block;
+    height: 100px;
+    width: 300px;
+    margin-bottom: -36px;
+}
+.right-list-a .right-a img
+{
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.list .user-img
+{
+   /* display: inline-block;*/
+    display: block;
+    width: 38px;
+    height: 38px;
+}
+.list .user-img img
+{
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+.list li
+{
+    width: 300px;
+}
+
+.follow-a
+{
+    color: #2BAF77;
+    text-decoration: none;
+    margin-left: 40px;
+
+}
+/*.recommend-list li a
+{
+    width: 38px;
+    height: 38px;
+    display: block;
+
+    border: 1px solid rebeccapurple;
+    float: left;
+}
+.recommend-list li a img
+{
+    width: 100%;
+    height:100%;
+    border-radius: 50%;
+}
+.recommend-list li .author-a
+{
+
+    display: block;
+}*/
+
+.recommend-list .author
+{
+    margin-bottom: 16px;
+}
+
+.article-modal-list li
+{
+	border-bottom: 1px  solid #e8e8e8;
+	padding-left: 30px;
+	padding-bottom: 10px;
+	padding-top:10px;
+	padding-right: 30px;
+}
+.article-modal-list li span
+{
+	font-size:17px;
+	
+}
+.article-modal-list li button
+{
+	float: right;
+	outline:none;
+}
 
 
+/*
+用户界面
+*/
+.user-page-a
+{
+    width: 80px;
+    height: 80px;
+    display: block;
+    float: left;
+
+}
+.user-page-a img
+{
+    width: 100%;
+    height:100%;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+}
+
+.user-name
+{
+    padding: 5px 0 0 100px;
+}
+.user-name a{
+    display: inline;
+    font-size: 21px;
+    font-weight: 700;
+    vertical-align: middle;
+    color: black;
+    text-decoration: none;
+}
+
+.user-top info
+{
+    margin-top: 5px;
+    padding-left: 100px;
+    font-size: 14px;
+}
+.user-info-list
+{
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: 87px;
+}
+.user-info-list li
+{
+    float: left;
+    margin-left: 10px;
+    padding-right: 10px;
+}
+.meta-block  p
+{
+    color: black;
+    margin-bottom: 0px;
+}
+.meta-block a
+{
+    color: #969696;
+    text-decoration: none;
+}
+.meta-block div
+{
+    color: #969696;
+
+}
+
+/*
+评论
+ */
+.comment-list
+{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.comment-list .avatar {
+    margin-right: 5px;
+    width: 38px;
+    height: 38px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.comment-list .new-comment textarea {
+    padding: 10px 15px;
+    width: 90%;
+    height: 80px;
+    font-size: 13px;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+    resize: none;
+    display: inline-block;
+    vertical-align: top;
+    outline-style: none;
+}
+.new-comment .btn-send {
+    float: right;
+    width: 78px;
+    margin: 10px 0;
+    margin-right: 20px;
+    padding: 8px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    color: #fff!important;
+    background-color: #42c02e;
+    cursor: pointer;
+    outline: none;
+    display: block;
+}
+ .comment-list .new-comment .cancel {
+    float: right;
+    margin: 18px 30px 0 0;
+    font-size: 16px;
+    color: #969696;
+}
+
+ .normal-comment-list
+ {
+     margin-top: 60px;
+ }
+.normal-comment-list li
+{
+
+    border-bottom: 1px solid #f0f0f0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.normal-comment-list  .top span
+{
+    font-weight: 600;
+    font-size: 20px;
+}
+.commentor
+{
+    margin-bottom: 15px;
+}
+
+.commentor .avatar
+{
+    float: left;
+}
+.comentor-info
+{
+   margin-left: 48px;
+}
+.comentor-info a
+{
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+}
+.comentor-info p
+{
+    font-size: 12px;
+    color: #969696;
+}
+.comment-wrap p
+{
+    font-size: 16px;
+
+}
+.comment-wrap .recommend
+{
+    border-left: 3px solid #4ea787;
+}
+.comment-wrap .recommend li
+{
+
+
+
+    border-bottom: 1px solid #f0f0f0;
+    margin-top: 15px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.comment-tool a
+{
+    color: #a6a6a6;
+    text-decoration: none;
+    margin-right: 15px;
+}
+.comment-tool a span
+{
+    font-size: 14px;
+}
+.recommend .bottom-tool a
+{
+    font-size: 12px;
+    color: #969696;
+}
+.recommend .bottom-tool span
+{
+    font-size: 12px;
+    color: #969696;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/*文章展示底部*/
+.meta-bottom
+{
+    width: 700px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.meta-bottom .like {
+    display: inline-block;
+}
+.meta-bottom .like-group {
+    padding: 13px 0 15px;
+    font-size: 0;
+    border: 1px solid #ea6f5a;
+    border-radius: 40px;
+}
+.like-group:hover
+{
+    background-color: rgba(234, 111, 90, 0.26);
+}
+.meta-bottom .like-group .btn-like {
+    font-size: 19px;
+    display: inline-block;
+}
+.meta-bottom .like-group .btn-like a {
+     color: #ea6f5a;
+     padding: 18px 15px 18px 30px;
+    text-decoration: none;
+ }
+.meta-bottom .like-group .modal-wrap-2 {
+    font-size: 18px;
+    border-left: 1px solid rgba(236,97,73,.4);
+    display: inline-block;
+}
+.meta-bottom .like-group .modal-wrap-2 a {
+    color: #ea6f5a;
+    padding: 18px 30px 18px 17px;
+    text-decoration: none;
+}

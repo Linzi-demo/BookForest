@@ -11,7 +11,8 @@
 
 <!-- spring的配置文件，这里主要配置业务逻辑有关的 -->
 <context:component-scan base-package="com.bookforest">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" 
+			expression="org.springframework.stereotype.Controller"/>
 </context:component-scan>
 <!-- 数据源、事务控制 -->
 
@@ -19,7 +20,8 @@
 	<!-- 引入配置文件 -->
 	<context:property-placeholder location="classpath:dbconfig.properties "/>
 	
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+												init-method="init" destroy-method="close">
 			<property name="url" value="${jdbc.jdbcUrl}"> </property>		
 			<property name="driverClassName" value="${jdbc.driverClass}"></property>
 			<property name="username" value="${jdbc.user}"></property>

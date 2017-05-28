@@ -1,10 +1,10 @@
 package com.bookforest.utils;
 
 
-import java.io.PrintStream;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class TimeUtil {
 	private static final String[] FORMAT_LEN = { "yyyy", "yyyyMM", "yyyy-MM", "yyyyMMdd",
@@ -153,6 +153,12 @@ public class TimeUtil {
 		return new Timestamp(date.getTime());
 	}
 
+	public static String getCurrentTime()
+	{
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return df.format(new Date());
+	}
+	
 	public static void main(String[] args) throws Exception {
 		System.out.println(getDaysLeftOfMonth("20170115"));
 	}

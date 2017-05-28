@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,6 +27,7 @@ import com.bookforest.bean.User;
 import com.bookforest.service.article.ArticleService;
 import com.bookforest.utils.Maps;
 import com.bookforest.utils.RequestUtil;
+import com.bookforest.utils.TimeUtil;
 import com.bookforest.utils.UUIDUtils;
 
 @Controller
@@ -57,7 +58,6 @@ public class WriteController {
 	          request.setCharacterEncoding( "utf-8" );
 	          response.setHeader( "Content-Type" , "text/html" );
 	          String rootPath = "D://JavaDeveloper//images//user";
-
 	          /**
 	           * 文件路径不存在则需要创建文件路径
 	           */
@@ -65,13 +65,16 @@ public class WriteController {
 	          if(!filePath.exists()){
 	              filePath.mkdirs();
 	          }
-
+	       // 原始名称
+	          String oldFileName = attach.getOriginalFilename(); // 获取上传文件的原名
+	       // 新的图片名称
+	            String newFileName = UUID.randomUUID() + oldFileName.substring(oldFileName.lastIndexOf("."));
 	          //最终文件名
-	          File realFile=new File(rootPath+File.separator+attach.getOriginalFilename());
+	          File realFile=new File(rootPath+File.separator+newFileName);
 	          FileUtils.copyInputStreamToFile(attach.getInputStream(), realFile);
 
 	          //下面response返回的json格式是editor.md所限制的，规范输出就OK
-	          response.getWriter().write( "{\"success\": 1, \"message\":\"上传成功\",\"url\":\"/pic/user/" + attach.getOriginalFilename() + "\"}" );
+	          response.getWriter().write( "{\"success\": 1, \"message\":\"上传成功\",\"url\":\"/pic/user/" + newFileName + "\"}" );
 	      } catch (Exception e) {
 	          try {
 	              response.getWriter().write( "{\"success\":0}" );
@@ -87,7 +90,6 @@ public class WriteController {
 		Map<String, Object> parameter = RequestUtil.getRequestParameter(request);
 		Article article=new Article();
 		System.out.println(parameter);
-		
 		HttpSession session = request.getSession();
 		User loginUser=(User) session.getAttribute("loginUser");
 		if(loginUser==null)
@@ -100,8 +102,8 @@ public class WriteController {
 		article.setArticleTitle(Maps.getString(parameter, "articleTitle"));
 		article.setContent(Maps.getString(parameter, "editorhtml"));
 		article.setAuthor(loginUser.getUserId());
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		article.setDate(df.format(new Date()));
+		
+		article.setDate(TimeUtil.getSysTime());
 		article.setTag(Maps.getString(parameter, "bookmarks"));
 		if(Maps.getString(parameter, "type")!=null && Maps.getString(parameter, "type").equals("on"))
 		{
@@ -113,7 +115,7 @@ public class WriteController {
 		}
 		
 		Pattern p = Pattern.compile("<img src=(.*) alt");  
-		Matcher m = p.matcher(Maps.getString(parameter, "editorhtml"));  
+		Matcher m = p.matcher(Maps.getString(parameter, "test-editormd-html-code"));  
 		while(m.find()){  
 		/*System.out.println(m.group(1));  */
 			article.setArticleImg("http://localhost"+m.group(1).substring(1,m.group(1).length()-1));
@@ -122,6 +124,8 @@ public class WriteController {
 		
 		String articleText=Maps.getString(parameter, "articleText");
 		articleText.replaceAll("\r|\n", "");
+		article.setWordNum(articleText.length());
+		
 		article.setArticleInfo(articleText.substring(0, 90)+"...");
 		
 		boolean b = articleService.addArticle(article);

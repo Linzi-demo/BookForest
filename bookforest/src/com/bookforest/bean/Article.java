@@ -24,9 +24,39 @@ public class Article {
 	
 	private Integer wordNum;
 	
+	private Integer recommend;
+	
+	private Integer state;
+	
 	private User authorUser;
 	
+	private Plate plate;
 	
+	
+
+	public Plate getPlate() {
+		return plate;
+	}
+
+	public void setPlate(Plate plate) {
+		this.plate = plate;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public Integer getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(Integer recommend) {
+		this.recommend = recommend;
+	}
 
 	public User getAuthorUser() {
 		return authorUser;

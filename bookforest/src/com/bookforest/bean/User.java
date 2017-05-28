@@ -28,7 +28,7 @@ public class User {
     
     
 
-    public String getImgUrl() {
+	public String getImgUrl() {
 		return imgUrl;
 	}
 

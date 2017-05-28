@@ -27,5 +27,42 @@
             #{plateId}
         	</foreach>
  	 </delete>
+ 	 
+ 	 <!-- public int inertArtToPlate -->
+ 	 <insert id="inertArtToPlate">
+ 	 		insert into bf_plate_art(plate_id,article_id,time) values(#{plateId},#{articleId},#{time})
+ 	 </insert>
+ 	 
+ 	 <!-- public Plate getPlateById(String plateId); -->
+ 	 <select id="getPlateById" resultType="com.bookforest.bean.Plate">
+ 		select * from bf_plate where plate_id=#{plateId}
+ 	</select>
+ 	
+ 	<!-- public Integer getPlateArticle( -->
+ 	<select id="getPlateArticle" resultType="int">
+ 		select count(*) from bf_plate_art where article_id=#{articleId} and plate_id=#{plateId}
+ 	</select>
+ 	
+ 	<!-- public Integer addUserPlate -->
+ 	<insert id="addUserPlate">
+ 		insert into bf_user_plate(user_id,plate_id,time)
+ 			values
+ 			(#{userId},#{plateId},#{time})
+ 	</insert>
+ 	
+ 	<!-- public Integer getPlateUser -->
+ 	<select id="getPlateUser" resultType="int">
+ 		select count(*) from bf_user_plate where user_id=#{userId} and plate_id=#{plateId}
+ 	</select>
+ 	
+ 	<!-- public Plate getPlateByArticle(String articleId); -->
+ 	<select id="getPlateByArticle" resultType="com.bookforest.bean.Plate">
+ 		select * from bf_plate where article_id=#{articleId}
+ 	</select>
+ 	
+ 	<!-- public Integer delUserPlate( -->
+ 	<delete id="delUserPlate">
+ 		DELETE FROM bf_user_plate WHERE user_id=#{userId} and plate_id=#{plateId}
+ 	</delete>
  </mapper>
  

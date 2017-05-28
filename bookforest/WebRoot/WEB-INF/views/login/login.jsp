@@ -12,14 +12,19 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
-
+		<link rel="stylesheet" href="plugins/fontawesome/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="login-static/css/bootstrap.min.css">
     <link rel="stylesheet" href="login-static/css/animate.css">
     <link rel="stylesheet" href="login-static/css/style.css">
+	<link rel="stylesheet" href="css/bootstrapValidator.css">
 
-
+<!-- jQuery -->
+<script src="login-static/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="login-static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
     <!-- Modernizr JS -->
     <script src="login-static/js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -37,7 +42,7 @@
 
 
             <!-- Start Sign In Form -->
-            <form action="doLogin" method="post" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+            <form id="loginForm" action="doLogin" method="post" class="fh5co-form animate-box" data-animate-effect="fadeIn">
                 <h2>登  录</h2>
                 <div class="form-group">
                     <label for="username" class="sr-only">用户名</label>
@@ -64,17 +69,51 @@
 
 </div>
 
-<!-- jQuery -->
-<script src="login-static/js/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="login-static/js/bootstrap.min.js"></script>
+
 <!-- Placeholder -->
 <script src="login-static/js/jquery.placeholder.min.js"></script>
 <!-- Waypoints -->
 <script src="login-static/js/jquery.waypoints.min.js"></script>
 <!-- Main JS -->
 <script src="login-static/js/main.js"></script>
-
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#loginForm').bootstrapValidator({
+       /*  container: 'tooltip', */
+        trigger: 'blur',
+        feedbackIcons: {
+            valid: 'fa fa-check',
+            invalid: 'fa fa-remove',
+            validating: 'fa fa-refresh'
+        },
+        fields: {
+        	username: {
+                validators: {
+                    stringLength: {
+                        enabled: false,
+                        min: 4,
+                        message: '用户长度不足5位'
+                    },
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    stringLength: {
+                        min: 4,
+                        message: '长度不足5位'
+                    },
+                    notEmpty: {
+                        message: '密码不能为空'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
 
 </body>
 </html>

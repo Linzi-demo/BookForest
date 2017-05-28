@@ -48,4 +48,44 @@ public class PlateService {
 		
 		return plates;
 	}
+	
+	public boolean inserArtToPlate(String plateId,String articleId,String time)
+	{
+		int i=plateDao.inertArtToPlate(plateId, articleId, time);
+		
+		return i>0?true : false;
+	}
+	
+	public Plate getPlateById(String plateId)
+	{
+		return plateDao.getPlateById(plateId);
+	}
+	
+	public boolean getPlateArticle(String articleId,String plateId)
+	{
+		int i=plateDao.getPlateArticle(articleId, plateId);
+		
+		return i>0?true:false;
+	}
+	
+	public boolean addUserPlate(String userId,String plateId,String time)
+	{
+		int i=plateDao.addUserPlate(userId, plateId,time);
+		
+		return i>0?true:false;
+	}
+	
+	public boolean getPlateUser(String userId,String plateId)
+	{
+		int i=plateDao.getPlateUser(userId, plateId);
+		
+		return i>0?true:false;
+	}
+	
+	public boolean delUserPlate(String userId,String plateId)
+	{
+		int i=plateDao.delUserPlate(userId, plateId);
+		
+		return i>0?true:false;
+	}
 }

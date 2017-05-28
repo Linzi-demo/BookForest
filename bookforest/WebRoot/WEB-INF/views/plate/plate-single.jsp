@@ -47,26 +47,34 @@
         <div class="col-sm-6 col-sm-offset-2" >
             <div class="row" style=" margin-bottom: 30px">
                 <div class="col-sm-8">
-                    <a href="#" class="plate-img-a">
-                        <img src="images/20100120161805563.jpg" alt="">
+                    <a href="plateIndex?plateId=${plate.plateId}" class="plate-img-a">
+                        <img src="${plate.plateImg }" alt="">
                     </a>
                     <div style="margin-top: 10px;margin-left: 100px">
-                        <a class="plate-title">短篇小说</a>
+                    	<input type="hidden" id="plateId" value="${plate.plateId }"> 
+                        <a class="plate-title">${plate.plateName }</a>
                         <p class="plate-info">收录了38181篇文章 · 900747人关注</p>
                     </div>
                 </div>
 
                 <div class="col-sm-2" style="padding-top: 15px">
-                    <button class="btn btn-success btn-lg" style="background-color: white; color: #49be64">
+                    <button onclick="tougao()" class="btn btn-success btn-lg" style="background-color: white; color: #49be64">
                         <i class="fa fa-paper-plane-o" style="margin-right: 5px"> </i>投稿</button>
 
                 </div>
 
                 <div class="col-sm-2" style="padding-top: 15px" >
-
-                    <div class="btn btn-success btn-lg" >
-                        <i class="fa fa-plus" style="margin-right: 5px"></i> 关注
-                    </div>
+					<c:if test="${isAttention!=null && isAttention=='true' }">
+						<button id="att-btn" onclick="delattention()" class="btn btn-success btn-lg" style="outline:none;background-color: white;color: #2DA76E">
+                        	<i class="fa fa-check" style="margin-right: 5px"></i><span>已关注</span> 
+                    	</button>
+					</c:if>
+					<c:if test="${isAttention==null }">
+						<button id="att-btn" onclick="attention()" class="btn btn-success btn-lg" style="outline:none">
+	                        <i class="fa fa-plus" style="margin-right: 5px"></i><span>关注</span> 
+	                    </button>
+					</c:if>
+                    
                 </div>
             </div>
             <div class="row">
@@ -83,28 +91,27 @@
                         </nav>
                         <div class="content-wrap" style="clear: left">
                             <section id="section-linebox-1" style="text-align: left">
-
-                                <!--文章列表-->
-                                <ul class="article-list">
-                                    <li class="" >
-                                        <div class="content">
-                                            <div class="single-article-top">
-                                                <a href="" class="user-img-a">
-                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                                    测试用户
-                                                </a>
-                                                <span class="article-time">
-                            5.15 12:00
-                            </span>
-                                            </div>
-                                            <div class="acticle-body">
-                                                <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
+								<c:if test="${articlesRec!=null }">
+									<ul class="article-list">
+											<c:forEach var="articleRec" items="${articlesRec}">
+													<li class="" >
+                                        					<div class="content">
+                                            						<div class="single-article-top">
+                                                						<a href="showArticle?articleId=${articleRec.articleId }" class="user-img-a">
+                                                    						<img src="${articleRec.authorUser.imgUrl }" alt="" class="img-circle user-image-size">
+                                                   								${articleRec.authorUser.userName }
+                                                						</a>
+                                                						<span class="article-time">
+                            													${articleRec.date }
+                            											</span>
+                                            				</div>
+                                            				<div class="acticle-body">
+                                                						<a href="#" class="artile-title">${articleRec.articleTitle }</a>
                                                 <p class="article-p">
-                                                    1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                                    有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
+                                                    ${articleRec.articleInfo }
                                                 </p>
                                                 <a class="article-plate-a" href="">
-                                                    短篇小说
+                                                    ${plate.plateName }
                                                 </a>
                                                 <a class="article-info-a" href="">
                                                     <i class="fa fa-eye"></i>
@@ -123,131 +130,13 @@
 
                                         </div>
                                         <a class="img-a" href="">
-                                            <img class="article-img" src="images/demo-1.jpg" alt="">
+                                            <img class="article-img" src="${articleRec.articleImg }" alt="">
                                         </a>
                                     </li>
-                                    <li class="" >
-                                        <div class="content">
-                                            <div class="single-article-top">
-                                                <a href="" class="user-img-a">
-                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                                    测试用户
-                                                </a>
-                                                <span class="article-time">
-                            5.15 12:00
-                            </span>
-                                            </div>
-                                            <div class="acticle-body">
-                                                <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                                                <p class="article-p">
-                                                    1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                                    有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                                                </p>
-                                                <a class="article-plate-a" href="">
-                                                    短篇小说
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-eye"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-comment"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-heart"></i>
-                                                    2312
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                        <a class="img-a" href="">
-                                            <img class="article-img" src="images/demo-1.jpg" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="" >
-                                        <div class="content">
-                                            <div class="single-article-top">
-                                                <a href="" class="user-img-a">
-                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                                    测试用户
-                                                </a>
-                                                <span class="article-time">
-                            5.15 12:00
-                            </span>
-                                            </div>
-                                            <div class="acticle-body">
-                                                <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                                                <p class="article-p">
-                                                    1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                                    有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                                                </p>
-                                                <a class="article-plate-a" href="">
-                                                    短篇小说
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-eye"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-comment"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-heart"></i>
-                                                    2312
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                        <a class="img-a" href="">
-                                            <img class="article-img" src="images/demo-1.jpg" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="" >
-                                        <div class="content">
-                                            <div class="single-article-top">
-                                                <a href="" class="user-img-a">
-                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
-                                                    测试用户
-                                                </a>
-                                                <span class="article-time">
-                            5.15 12:00
-                            </span>
-                                            </div>
-                                            <div class="acticle-body">
-                                                <a href="#" class="artile-title">晚点遇到你，余生都是你</a>
-                                                <p class="article-p">
-                                                    1. 你累了吧？ 一个人走了那么久，才终于遇见我。那些没有我的日子，一个人撑得并不容易，对吗？
-                                                    有人说，你的生命里会有一个人，他的出现，会让你之前的等待都变得值得，你要相信，...
-                                                </p>
-                                                <a class="article-plate-a" href="">
-                                                    短篇小说
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-eye"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-comment"></i>
-                                                    2312
-                                                </a>
-                                                <a class="article-info-a" href="">
-                                                    <i class="fa fa-heart"></i>
-                                                    2312
-                                                </a>
-
-                                            </div>
-
-                                        </div>
-                                        <a class="img-a" href="">
-                                            <img class="article-img" src="images/demo-1.jpg" alt="">
-                                        </a>
-                                    </li>
-
-                                </ul>
+											</c:forEach>
+									</ul>
+								</c:if>
+                                
 
                             </section>
                             <section id="section-linebox-2" style="text-align: left">
@@ -330,14 +219,14 @@
 
                                         </div>
                                         <a class="img-a" href="">
-                                            <img class="article-img" src="../images/demo-1.jpg" alt="">
+                                            <img class="article-img" src="images/demo-1.jpg" alt="">
                                         </a>
                                     </li>
                                     <li class="" >
                                         <div class="content">
                                             <div class="single-article-top">
                                                 <a href="" class="user-img-a">
-                                                    <img src="../images/user-05.png" alt="" class="img-circle user-image-size">
+                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
                                                     测试用户
                                                 </a>
                                                 <span class="article-time">
@@ -370,14 +259,14 @@
 
                                         </div>
                                         <a class="img-a" href="">
-                                            <img class="article-img" src="../images/demo-1.jpg" alt="">
+                                            <img class="article-img" src="images/demo-1.jpg" alt="">
                                         </a>
                                     </li>
                                     <li class="" >
                                         <div class="content">
                                             <div class="single-article-top">
                                                 <a href="" class="user-img-a">
-                                                    <img src="../images/user-05.png" alt="" class="img-circle user-image-size">
+                                                    <img src="images/user-05.png" alt="" class="img-circle user-image-size">
                                                     测试用户
                                                 </a>
                                                 <span class="article-time">
@@ -410,7 +299,7 @@
 
                                         </div>
                                         <a class="img-a" href="">
-                                            <img class="article-img" src="../images/demo-1.jpg" alt="">
+                                            <img class="article-img" src="images/demo-1.jpg" alt="">
                                         </a>
                                     </li>
 
@@ -449,6 +338,33 @@
 </div>
 
 <!--主体结束-->
+<!-- 弹出层 -->
+<div class="modal fade"  id="addModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" data-backdrop="static">
+		<div class="modal-dialog sm-lg" role="document">
+				<div class="modal-content">
+						<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="editModalLabel">向该板块投稿</h4>
+						</div>
+						<div class="modal-body">
+								<div class="row">
+								<%-- <c:if test="${userArticles!=null }"> --%>
+									<ul class="article-modal-list">
+										<%-- <c:forEach var="userArticle" items="${userArticles }">
+											<li>
+												<span class="article-title">${userArticle.articleName }</span>
+												<button class="btn btn-success" value="${userArticle.articleId }">投稿</button>
+											</li>
+										</c:forEach> --%>
+									</ul>
+								<%-- </c:if> --%>
+									
+								</div>
+						</div>
+						
+				</div>
+		</div>
+</div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-3.1.1.min.js"></script>
@@ -456,8 +372,9 @@
 <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/slider.js"></script>
 <script src="js/cbpFWTabs.js"></script>
-
+<script type="text/javascript" src="js/platesingle.js"></script>
 <script>
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
     (function() {
 
         [].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
@@ -465,5 +382,7 @@
         });
 
     })();
+    
+   
 </script>
 </html>

@@ -44,5 +44,43 @@
  				WHERE 
  					a.`article_id`=#{articleId} AND a.`author`=u.`user_id` 
  		</select>
+ 		
+ 		
+ 		<!-- public List<Article> getArticleByAuthor(String userId); -->
+ 		<select id="getArticleByAuthor" resultType="com.bookforest.bean.Article">
+ 				SELECT article_id,article_title FROM bf_article WHERE author=#{userId}
+ 		</select>
+ 		
+ 		
+ 		<!--public List<Article> getArticleMoreByAuthor(String userId);  -->
+ 		<select id="getArticleMoreByAuthor" resultType="com.bookforest.bean.Article">
+ 				SELECT * FROM bf_article WHERE author=#{userId}
+ 		</select>
+ 		
+ 		<resultMap type="com.bookforest.bean.Article" id="plateArticle">
+ 			<id column="article_id" property="articleId"></id>
+ 			<result column="article_title" property="articleTitle"/>
+ 			<result column="article_img" property="articleImg"/>
+ 			<result column="date" property="date"/>
+ 			<result column="article_info" property="articleInfo"/>
+ 			<association property="authorUser" select="com.bookforest.dao.user.UserDao.getUserById" column="author">
+ 			</association>
+ 	</resultMap>
+ 		<!-- public List<Article> getArticleByPlateId -->
+ 		<select id="getArticleByPlateId" resultMap="plateArticle">
+ 			SELECT 
+ 				a.article_id,article_title,article_info,article_img ,author,DATE
+ 			FROM 
+ 				bf_article a,(SELECT * FROM bf_plate_art p 
+ 			WHERE 
+ 				p.plate_id=#{plateId} AND p.`state`=#{state} AND p.`recommend`=#{recommend}) AS t WHERE a.`article_id`= t.article_id;
+ 		</select>
+ 		
+		<!--public Integer getArticleNum(String userId);  --> 
+		<select id="getArticleNum" resultType="int">
+				SELECT COUNT(*) articleNum FROM bf_article WHERE author=#{userId}
+		</select>		
+ 		
+ 		
  </mapper>
  

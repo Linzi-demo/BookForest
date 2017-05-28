@@ -31,7 +31,6 @@ public class LoginController {
 	public void doLogin(HttpServletRequest request,HttpServletResponse response) throws Exception
 	{
 		Map<String, Object> parameter = RequestUtil.getRequestParameter(request);
-		System.out.println(parameter);
 		String userName=(String) parameter.get("username");
 		String userPwd=(String) parameter.get("password");
 		
@@ -53,7 +52,13 @@ public class LoginController {
 				request.getRequestDispatcher("index").forward(request, response);
 			}
 		}
+	}
+	@RequestMapping("signout")
+	public void signout(HttpServletRequest request,HttpServletResponse response) throws Exception
+	{
+		HttpSession session = request.getSession();
+		session.removeAttribute("loginUser");
 		
-		
+		request.getRequestDispatcher("community").forward(request, response);
 	}
 }

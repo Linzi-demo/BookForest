@@ -39,14 +39,16 @@
         <div id="layout">
             <div id="test-editormd">
                 
-               <!--  <textarea class="editormd-html-textarea" name="articleContent"> -->
+                <!-- <textarea class="editormd-html-textarea" name="articleContent"> -->
                 
                 <textarea class="editormd-markdown-textarea" name="test-editormd-markdown-doc" id="editormd"></textarea>
 			    
 			    <textarea class="editormd-html-textarea" name="editorhtml" id="editorhtml"></textarea> 
+			    
             </div>
         </div>
     </div>
+    <!-- <textarea id="contentMd" name="contentMd" style="display: none"></textarea> -->
     <div class="row">
         <div class="col-sm-1">
             <a href="" class="btn btn-success back-a"> <i class="fa fa-chevron-left"></i> 返回书林</a>
@@ -107,31 +109,17 @@
             onload : function() {
                 console.log('onload', this);
                 
-                //this.fullscreen();
-                //this.unwatch();
-                //this.watch().fullscreen();
-
-                //this.setMarkdown("#PHP");
-                //this.width("100%");
-                //this.height(480);
-                //this.resize("100%", 640);
+           
             }
 
         });
 
-        /*
-         // or
-         testEditor = editormd({
-         id      : "test-editormd",
-         width   : "90%",
-         height  : 640,
-         path    : "../lib/"
-         });
-         */
+     
     });
     
     function sub()
     {
+    	/* $('#contenMd').val(testEditor.getMarkdown()) */
     	var htl=$('#editorhtml').val();
 		var dd=htl.replace(/<\/?.+?>/g,"");
 		var dds=dd.replace(/ /g,"");//dds为得到后的内容

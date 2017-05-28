@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-<!-- 网站跳转逻辑的配置 -->
+		<!-- 网站跳转逻辑的配置 -->
 		<context:component-scan base-package="com.bookforest" use-default-filters="false">
 				<!-- 只扫描controller注解 -->
 				<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

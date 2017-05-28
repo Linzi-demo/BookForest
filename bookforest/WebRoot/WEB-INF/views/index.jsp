@@ -36,13 +36,13 @@
 						<div class="header-left clearfix">
 
 							<!-- logo -->
-							<div class="logo smooth-scroll">
+							<!-- <div class="logo smooth-scroll">
 								<a href="#banner"><img id="logo" src="images/logo.png" alt="Worthy"></a>
-							</div>
+							</div> -->
 
 							<!-- name-and-slogan -->
 							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">书林</a></div>
+								<div class="site-name"><a href="#banner">书    林</a></div>
 								<div class="site-slogan">The Best Blog Platform for Hunmans </div>
 							</div>
 
